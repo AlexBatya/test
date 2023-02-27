@@ -1,0 +1,193 @@
+$maxWidth: 1200;
+@mixin adaptiv-font($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$addMobSize: $addSize + $addSize * 0.7;
+	@media (max-width: 767px) {
+		font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
+	}
+	@media (min-width: 767px) {
+		font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+	}
+}
+
+@function maxWightper($maxWidth,$width){
+    @return (100% * $width)/$maxWidth
+};
+
+@function maxWightperPer($per){
+    @return $per*2/50
+};
+
+header{
+    font-family: 'Montserrat', sans-serif;
+    .header__body{
+        position: relative;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        &__container{
+            .menu{
+                // z-index: 100;
+                // background-color: white;
+                // position: fixed;
+                // width: 100%;
+                // height: 100%;
+                .menu__body{
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    padding: 23px 0 22px 0;
+                    .logo{
+
+                    }
+                    .curs{
+                        display: flex;
+                        align-items: center;
+                        border: 1px solid #202222;
+                        gap: 10px;
+                        padding: 10px 20px;
+                        div:nth-child(2){
+                            font-size: 10px;
+                        }
+                        div{
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 1rem;
+                            line-height: 19px;
+                            color: #202222;
+                            span{
+                                transform: rotate(-90deg);
+                                transform-origin: top left;
+                            }
+                            span::before{
+                                content: ">";
+                                transform: rotate(-90deg);
+                                font-size: 10px;
+
+                            }
+                        }
+                        
+                    }
+                    .numberPhone{
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 1rem;
+                        line-height: 19px;
+                        color: #1FBAD1;
+                    }
+                    .btmApplicate{
+                        padding: 14px 20px;
+                        background-color:  #1FBAD1;;
+                        border: none;
+
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 19px;
+                        text-align: center;
+                        color: #FFFFFF;
+                    }
+                    .lenguage{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 5px;
+                    }
+                    .lenguage::after{
+                        content: ">";
+                        transform: rotate(90deg);
+                        font-size: 10px;
+                    }
+                    .persone{
+                    }
+                }
+            }
+            .previw{
+                display: grid;
+                grid-template-columns: 45% 35% 20%;
+                grid-template-rows: 60% 40%;
+                height: 950px;
+                .previw__text{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 0 maxWightper(1440px,1.8*72px) 0 maxWightper(1440px,1.8*72px) ;
+                    h1{
+                        margin: 0 0 maxWightper(950px,2*32px) 0;
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 4.5rem;
+                        line-height: 84.52%;
+                        letter-spacing: -0.025em;
+                        color: #202222; 
+                    }
+                    p{
+                        margin: 0 0 maxWightper(950px,2*32px) 0;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 1.5rem;
+                        line-height: 131.84%;
+                        color: #202222;
+                    }
+                    button{
+                        border: none;
+                        max-width: 227px;
+                        padding: 16px 24px;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 1.125rem;
+                        line-height: 24px;
+                        text-align: center;
+                        color: #FFFFFF;
+                        background: #1FBAD1;
+                    }
+                }
+                .carImg{
+                    grid-area: 1 /2 /2/ 4;
+                    img{
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .sea{
+                    img{
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .slider__advantages{
+                    background: #202222;
+                    color: white;
+                    .slider__item{
+                        padding: 36px 36px 0 36px;
+                        h3{
+                            margin: 0 0 60px 0;
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 2rem;
+                            line-height: 131.84%;
+                        }
+                        p{
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 1.25rem;
+                            line-height: 131.84%;
+                        }
+                    }
+                }
+                .lastImg{
+                    padding: maxWightper(950px,3.5*35px) 0 0 maxWightper(1440px,3*35px);
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 1.75rem;
+                    line-height: 131.84%;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}
